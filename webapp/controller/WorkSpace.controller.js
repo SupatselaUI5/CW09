@@ -13,8 +13,18 @@ sap.ui.define([
 		 * @memberOf gdsd.CW09.view.WorkSpace
 		 */
 		onInit: function () {
+			this._oODataModel = this.getOwnerComponent().getModel();
+			this._oODataModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
+			this.Router = sap.ui.core.UIComponent.getRouterFor(this);
+			this.Router.getRoute("WorkSpace").attachPatternMatched(this._onObjectMatched, this);
+			this.onBindSWBP();
 
 		},
+
+		_onObjectMatched: function (oEvent) {
+			this.onBindSWBP();
+		},
+		
 		onSearch: function (oEvent) {
 			// add filter for search
 			var aFilters = [];
@@ -45,6 +55,49 @@ sap.ui.define([
 			var sText = (bSelected) ? aContexts.length + " selected" : null;
 			oInfoToolbar.setVisible(bSelected);
 			oLabel.setText(sText);
+		},
+
+		onBindSWBP: function () {
+			sap.ui.core.BusyIndicator.show();
+			this._oODataModel.read("/GET_BPSet", {
+				//User details retrieved successfully
+				success: (function (oData) {
+					var BPJsonModel = new sap.ui.model.json.JSONModel({
+						data: oData.results[0]
+					});
+					this.byId("objHeaderSW").setModel(BPJsonModel);
+					this.byId("objHeaderSW").bindElement({
+						path: "/data"
+							// use OData parameters here if needed
+					});
+					this.SWBP = oData.results[0].But000.Partner;
+					var filterVal = "BpNo eq '" + this.SWBP + "'";
+					this.getTaskData(filterVal);
+				}).bind(this),
+				error: (function (e, x, r) {
+					// console.log("Error " + e);
+				})
+			});
+		},
+
+		getTaskData: function (filter) {
+			// var filterVal = "BpNo eq '0000000114'";
+			var oList = this.byId("TaskList");
+			this._oODataModel.read("/GetIndividualAssessmentSet", { // sPath - path of your Entityset
+				urlParameters: {
+					"$filter": filter
+				},
+				success: function (data, response) {
+					var TaskJsonModel = new sap.ui.model.json.JSONModel(data);
+					oList.setModel(TaskJsonModel);
+					sap.ui.getCore().setModel(TaskJsonModel, "TaskJsonModel");
+					sap.ui.core.BusyIndicator.hide();
+					//your code for manipulation of the data received 
+				}.bind(this), // if you want to use the current controller instance within this function
+				error: function (response) {
+						// for handling the error received
+					}.bind(this) // if you want to use the current controller instance within this function
+			});
 		}
 
 		/**

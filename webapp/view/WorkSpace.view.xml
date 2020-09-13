@@ -1,39 +1,37 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="gdsd.CW09.controller.WorkSpace">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="gdsd.CW09.controller.WorkSpace">
 	<App>
 		<pages>
 			<Page showNavButton="true">
 				<content>
-				    <ObjectHeader xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" intro="Social Worker:" icon="pictures/gauteng.png" title="CW09 Assessment ">
-				        <attributes>
-				            <ObjectAttribute title="Accreditation Number"/>
-				            </attributes>
-				        
-				    </ObjectHeader>
-				    <List xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" items="{path: '/results'}" id="TaskList">
-				        <items>
-				            <ObjectListItem type="Navigation" press="onTaskItemPress" intro="BP: {BpNo}">
-				                <attributes>
-				                    <ObjectAttribute title="Assessment Type"/>
-				                    <ObjectAttribute title="Task Description"/>
-				                    <ObjectAttribute title="Date"/>
-				                    <ObjectAttribute title="Process Note ID" text="{ObjectId}"/>
-				                    </attributes>
-				                
-				            </ObjectListItem>
-				            
-				        </items>
-				        <headerToolbar>
-				            <Toolbar width="100%" id="toolbar1">
-				                <content>
-				                    <SearchField liveChange=".onSearch" width="100%" placeholder="Search with Assessment Type"/>
-				                    <ToolbarSpacer id="spacer0"/>
-				                    <Button xmlns="sap.m" icon="sap-icon://filter" type="Emphasized"/>
-				                    </content>
-				                
-				            </Toolbar>
-				            
-				        </headerToolbar>
-				        </List>
+					<ObjectHeader id="objHeaderSW" intro="Social Worker: {But000/NameFirst} {But000/NameLast}" icon="pictures/gauteng.png"
+						title="CW09 Assessment ">
+						<attributes>
+							<ObjectAttribute title="Accreditation Number " text="{But0id/Idnumber}"/>
+						</attributes>
+					</ObjectHeader>
+					<List  items="{path: '/results'}" id="TaskList">
+						<items>
+							<ObjectListItem type="Navigation" title="{But000/NameFirst} {But000/NameLast}" press="onTaskItemPress" intro="BP: {BpNo}">
+								<attributes>
+									<ObjectAttribute title="Assessment Type" text="{DescriptionA}"/>
+									<ObjectAttribute title="Description" text="{Description}"/>
+									<ObjectAttribute title="Date" text="{ path: 'InspectionDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>
+									<ObjectAttribute title="Status" text="{Statu/Txt30}"/>
+									<ObjectAttribute title="Task ID" text="{ObjectId}"/>
+								</attributes>
+							</ObjectListItem>
+						</items>
+						<headerToolbar>
+							<Toolbar width="100%" >
+								<content>
+									<SearchField liveChange=".onSearch" width="100%" placeholder="Search with Assessment Type"/>
+									<ToolbarSpacer id="spacer0"/>
+									<Button xmlns="sap.m" icon="sap-icon://filter" type="Emphasized"/>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+					</List>
 				</content>
 			</Page>
 		</pages>
