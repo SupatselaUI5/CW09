@@ -2,143 +2,109 @@
 	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page id="page" showNavButton="true">
+				<Page xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="page" showNavButton="true" navButtonPress="action" action:wiring="\{'navButtonPress':\{'navigation':\{'routeName':'WorkSpace'\}\}\}">
 					<content>
-					    <ObjectHeader xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" icon="pictures/gauteng.png" title="CW09 Assessment ">
-					        <attributes>
-					            <ObjectAttribute title="Task Description"/>
-					            <ObjectAttribute title="BP" text="{BpNo}"/>
-					            <ObjectAttribute title="Assessment Type"/>
-					            <ObjectAttribute title="Date"/>
-					            </attributes>
-					        
-					    </ObjectHeader>
-					    <IconTabBar xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" id="detailBar">
-					        <items>
-					            <IconTabFilter text="Particulars" design="Horizontal" icon="sap-icon://account" key="icon1" id="filter0">
-					                <content>
-					                    <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout">
-					                        <sap.ui.layout.form:content>
-					                            <core:Title xmlns:core="sap.ui.core" text="Task Details" emphasized="true"/>
-					                            <Label text="Primary Client Surname"/>
-					                            <Input xmlns="sap.m"/>
-					                            <Label text="Primary Client First Name"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label text="Label" width="100%" id="label2"/>
-					                            <Label width="100%" text="Primary Client ID Number"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Text xmlns="sap.m" text="If client is a child, add details of caregiver(s) below"/>
-					                            <Label text="Caregiver Surname" width="100%"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label text="Caregiver First Name" width="100%"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label text="Caregiver ID Number" width="100%"/>
-					                            <Label text="Caregiver ID Number" width="100%"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label width="100%" text="Date"/>
-					                            <DatePicker xmlns="sap.m"/>
-					                            <Label text="Process Note ID"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Address Number"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Street Name"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="City"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Postal Code"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Email Address"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Telephone Number"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" id="input13"/>
-					                            <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" width="100%" text="Notes"/>
-					                            <TextArea rows="4" liveChange="onAddNotes"/>
-					                            </sap.ui.layout.form:content>
-					                        
-					                    </sap.ui.layout.form:SimpleForm>
-					                    
-					                </content>
-					                
-					            </IconTabFilter>
-					            <IconTabFilter xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" text="Assessment" icon="sap-icon://accounting-document-verification" design="Horizontal">
-					                <content>
-					                    <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout">
-					                        <sap.ui.layout.form:content>
-					                            <core:Title xmlns:core="sap.ui.core" text="Process of Completing Assessment" emphasized="true"/>
-					                            <Label text="Type of Engagement" visible="false"/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4" liveChange="onAddNotes" visible="false"/>
-					                            <Label text="Date Completed"/>
-					                            <DatePicker xmlns="sap.m"/>
-					                            <Label text="Label" width="100%" id="label2_copy"/>
-					                            <Label width="100%" text="Name of Person Participating in the Assessment"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label text="Relationship to Clients or Type of Professional" width="100%"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label text="Name of Document" width="100%"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            <Label text="Caregiver ID Number" width="100%" id="label22"/>
-					                            <Label text="Key Information" width="100%"/>
-					                            <Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m"/>
-					                            </sap.ui.layout.form:content>
-					                        
-					                    </sap.ui.layout.form:SimpleForm>
-					                    
-					                </content>
-					                
-					            </IconTabFilter>
-					            <IconTabFilter xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" text="Assessment Findings" design="Horizontal" icon="sap-icon://activities">
-					                <content>
-					                    <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout">
-					                        <sap.ui.layout.form:content>
-					                            <core:Title xmlns:core="sap.ui.core" text="Assessment Findings" emphasized="true"/>
-					                            <Label text="Overview of the Situation of the Client(s)"/>
-					                            <TextArea xmlns="sap.m" rows="4"/>
-					                            <Label text="Label" width="100%" id="label2_copy2"/>
-					                            <Label width="100%" text="Social relations and integration and functioning in daily life"/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4"/>
-					                            <Label text="Sources of stress, emotional and behaviour problems" width="100%"/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4"/>
-					                            <Label text="Description of education background of the client(s)" width="100%"/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4"/>
-					                            <Label text="Caregiver ID Number" width="100%" id="label38"/>
-					                            <Label text="Safety and security" width="100%"/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4"/>
-					                            <Label width="100%" text="Description of any medical issues for the client(s) or members of their household"/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4"/>
-					                            <Label text="Description of the households’ food and nutrition status"/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4"/>
-					                            <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Description of the economic situation of the client(s) and their family"/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4"/>
-					                            <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Description of the client(s)s access to basic needs"/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4"/>
-					                            <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Accessing Document (i.e ID, legal needs)"/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4"/>
-					                            <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Summary of the key challenges, issues that needs to be addressed.  "/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4"/>
-					                            <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Problem codes"/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4"/>
-					                            <Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Description of risk level"/>
-					                            <TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4"/>
-					                            </sap.ui.layout.form:content>
-					                        
-					                    </sap.ui.layout.form:SimpleForm>
-					                    
-					                </content>
-					                
-					            </IconTabFilter>
-					            </items>
-					        
-					    </IconTabBar>
+						<ObjectHeader xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" icon="pictures/gauteng.png" title="CW09 Assessment ">
+							<attributes>
+								<ObjectAttribute title="Task Description" text="{Description}"/>
+								<ObjectAttribute title="BP" text="{BpNo}"/>
+								<ObjectAttribute title="Assessment Type" text="{DescriptionA}"/>
+								<ObjectAttribute title="Date" text="{ path: 'InspectionDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }"/>
+							</attributes>
+						</ObjectHeader>
+						<IconTabBar xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" id="detailBar">
+							<items>
+								<IconTabFilter text="Particulars" design="Horizontal" icon="sap-icon://account" key="icon1" id="filter0">
+									<content>
+										<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout">
+											<sap.ui.layout.form:content>
+												<core:Title xmlns:core="sap.ui.core" text="Task Details" emphasized="true"/>
+												<Label text="Primary Client Surname"/>
+												<Input xmlns="sap.m" value="{But000/NameLast}" enabled="false"/>
+												<Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" value="{But000/NameFirst}" enabled="false"/>
+												<Label width="100%" text="Date"/>
+												<Input value="{ path: 'InspectionDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy/MM/dd' } }" enabled="false"/>
+												<!--<DatePicker xmlns="sap.m"/>-->
+												<Label text="Task ID"/>
+												<Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" value="{ObjectId}" enabled="false"/>
+												<Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Address Number"/>
+												<Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" value="{Adrc/Addrnumber}" enabled="false"/>
+												<Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Street Name"/>
+												<Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" value="{Adrc/Street}" enabled="false"/>
+												<Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="City"/>
+												<Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" value="{Adrc/City1}" enabled="false"/>
+												<Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Postal Code"/>
+												<Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" value="{Adrc/PostCode1}" enabled="false"/>
+												<Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Email Address"/>
+												<Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" value="{Adr6/SmtpAddr}" enabled="false"/>
+												<Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Telephone Number"/>
+												<Input xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" value="{Adr2/TelnrCall}" enabled="false"/>
+												<Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" width="100%" text="Notes"/>
+												<TextArea rows="4" liveChange="onAddNotes"/>
+											</sap.ui.layout.form:content>
+										</sap.ui.layout.form:SimpleForm>
+									</content>
+								</IconTabFilter>
+								<IconTabFilter xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" text="Assessment" icon="sap-icon://accounting-document-verification" design="Horizontal">
+									<content>
+										<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout">
+											<sap.ui.layout.form:content>
+												<core:Title xmlns:core="sap.ui.core" text="Process of Completing Assessment" emphasized="true"/>
+												<Label text="Type of Engagement" visible="false"/>
+												<TextArea rows="4" liveChange="onAddNotes" visible="false"/>
+												<Label width="100%" text="Name of Person Participating in the Assessment and Relationship to Clients or Type of Professional"/>
+												<TextArea id="ZV20" rows="4"/>
+												<Label text="Name of Document and Key Information" width="100%"/>
+												<TextArea id="ZV21" rows="4"/>
+											</sap.ui.layout.form:content>
+										</sap.ui.layout.form:SimpleForm>
+									</content>
+								</IconTabFilter>
+								<IconTabFilter xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" text="Assessment Findings" design="Horizontal" icon="sap-icon://activities">
+									<content>
+										<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout">
+											<sap.ui.layout.form:content>
+												<core:Title xmlns:core="sap.ui.core" text="Assessment Findings" emphasized="true"/>
+												<Label text="Overview of the Situation of the Client(s)"/>
+												<TextArea xmlns="sap.m" rows="4" id="ZV22"/>
+												<Label text="Strengths of and problem solving of the client(s) " width="100%"/>
+												<TextArea rows="4" id="ZV23"/>
+												<Label width="100%" text="Social relations and integration and functioning in daily life"/>
+												<TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4" id="ZV24"/>
+												<Label text="Sources of stress, emotional and behaviour problems" width="100%"/>
+												<TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4" id="ZV25"/>
+												<Label text="Education " width="100%"/>
+												<TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4" id="ZV26"/>
+												<Label text="Caregiver ID Number" width="100%" id="label38"/>
+												<Label text="Safety and security" width="100%"/>
+												<TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4" id="ZV27"/>
+												<Label width="100%" text="Health and Nutrition "/>
+												<TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4" id="ZV28"/>
+												<Label text="Households’ food and nutrition status"/>
+												<TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4" id="ZV29"/>
+												<Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Economic issues, basic needs and legal needs "/>
+												<TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4" id="ZV30"/>
+												<Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Description of the client(s)s access to basic needs"/>
+												<TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4" id="ZV31"/>
+												<Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Accessing Document (i.e ID, legal needs)"/>
+												<TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4" id="ZV32"/>
+												<Label xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" text="Summary of the key challenges, issues that needs to be addressed, Problem Code and Risk Level"/>
+												<TextArea xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns="sap.m" rows="4" id="ZV33"/>
+											</sap.ui.layout.form:content>
+										</sap.ui.layout.form:SimpleForm>
+									</content>
+								</IconTabFilter>
+							</items>
+						</IconTabBar>
 					</content>
-				<footer>
-				    <Toolbar xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" width="100%">
-				        <content>
-				            <ToolbarSpacer/>
-				            <Button xmlns="sap.m" text="Submit" type="Accept" press="onGetLocation"/>
-				            </content>
-				        
-				    </Toolbar>
-				</footer>
+					<footer>
+						<Toolbar xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" width="100%">
+							<content>
+								<ToolbarSpacer/>
+								<Button xmlns="sap.m" text="Submit" type="Accept" press="onSubmit"/>
+							</content>
+						</Toolbar>
+					</footer>
 				</Page>
 			</pages>
 		</App>

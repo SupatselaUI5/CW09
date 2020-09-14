@@ -24,7 +24,7 @@ sap.ui.define([
 		_onObjectMatched: function (oEvent) {
 			this.onBindSWBP();
 		},
-		
+
 		onSearch: function (oEvent) {
 			// add filter for search
 			var aFilters = [];
@@ -97,6 +97,14 @@ sap.ui.define([
 				error: function (response) {
 						// for handling the error received
 					}.bind(this) // if you want to use the current controller instance within this function
+			});
+		},
+
+		onTaskPress: function (oEvent) {
+			var oItem = oEvent.getSource();
+			this.Router.navTo("TaskDetails", {
+				taskPath: window.encodeURIComponent(oItem.getBindingContext().getPath().substr(1)),
+				BPNo: this.SWBP
 			});
 		}
 
